@@ -1,0 +1,28 @@
+VCD info: dumpfile simulation/waveforms/tb_alu.vcd opened for output.
+==================================================
+Starting ALU Unit Verification
+==================================================
+[PASS] Test  1:             ADD positive numbers | Result = 0x00000028, Zero = 0
+[PASS] Test  2:         ADD with negative number | Result = 0x0000003c, Zero = 0
+[PASS] Test  3:               ADD producing Zero | Result = 0x00000000, Zero = 1
+[PASS] Test  4:             SUB positive numbers | Result = 0x00000032, Zero = 0
+[PASS] Test  5:    SUB equal numbers (Zero flag) | Result = 0x00000000, Zero = 1
+[PASS] Test  6:     SUB yielding negative result | Result = 0xfffffff1, Zero = 0
+[PASS] Test  7:            AND bitwise operation | Result = 0xf0f00000, Zero = 0
+[PASS] Test  8:       AND bitwise producing zero | Result = 0x00000000, Zero = 1
+[PASS] Test  9:             OR bitwise operation | Result = 0xf0ff55aa, Zero = 0
+[PASS] Test 10:                   OR zero inputs | Result = 0x00000000, Zero = 1
+[PASS] Test 11:                    SLT (10 < 20) | Result = 0x00000001, Zero = 0
+[PASS] Test 12:                    SLT (20 < 10) | Result = 0x00000000, Zero = 1
+[PASS] Test 13:                    SLT (15 < 15) | Result = 0x00000000, Zero = 1
+[PASS] Test 14:             SLT (-10 < 5 signed) | Result = 0x00000001, Zero = 0
+[PASS] Test 15:             SLT (5 < -10 signed) | Result = 0x00000000, Zero = 1
+[PASS] Test 16:           SLT (-20 < -10 signed) | Result = 0x00000001, Zero = 0
+==================================================
+ALU Verification Finished
+Total Tests : 16
+Tests Passed: 16
+Tests Failed: 0
+==================================================
+>>> ALL ALU TESTS PASSED <<<
+testbench/tb_alu.v:132: $finish called at 16000 (1ps)

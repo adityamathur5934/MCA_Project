@@ -1,0 +1,172 @@
+$date
+	Mon Nov 16 15:26:29 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_control_unit $end
+$var wire 1 ! reg_write $end
+$var wire 1 " reg_dst $end
+$var wire 1 # mem_write $end
+$var wire 1 $ mem_to_reg $end
+$var wire 1 % mem_read $end
+$var wire 1 & jump $end
+$var wire 1 ' branch $end
+$var wire 1 ( alu_src $end
+$var wire 2 ) alu_op [1:0] $end
+$var reg 6 * opcode [5:0] $end
+$var integer 32 + test_id [31:0] $end
+$var integer 32 , tests_failed [31:0] $end
+$var integer 32 - tests_passed [31:0] $end
+$scope module uut $end
+$var wire 6 . opcode [5:0] $end
+$var parameter 6 / OP_ADDI $end
+$var parameter 6 0 OP_BEQ $end
+$var parameter 6 1 OP_J $end
+$var parameter 6 2 OP_LW $end
+$var parameter 6 3 OP_R_TYPE $end
+$var parameter 6 4 OP_SW $end
+$var reg 2 5 alu_op [1:0] $end
+$var reg 1 ( alu_src $end
+$var reg 1 ' branch $end
+$var reg 1 & jump $end
+$var reg 1 % mem_read $end
+$var reg 1 $ mem_to_reg $end
+$var reg 1 # mem_write $end
+$var reg 1 " reg_dst $end
+$var reg 1 ! reg_write $end
+$upscope $end
+$scope task check_controls $end
+$var reg 2 6 exp_alu_op [1:0] $end
+$var reg 1 7 exp_alu_src $end
+$var reg 1 8 exp_branch $end
+$var reg 1 9 exp_jump $end
+$var reg 1 : exp_mem_read $end
+$var reg 1 ; exp_mem_to_reg $end
+$var reg 1 < exp_mem_write $end
+$var reg 1 = exp_reg_dst $end
+$var reg 1 > exp_reg_write $end
+$var reg 192 ? name [191:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b101011 4
+b0 3
+b100011 2
+b10 1
+b100 0
+b1000 /
+$end
+#0
+$dumpvars
+b101001000101101010101000111100101110000011001010010000000101000010000010100010001000100001011110101001101010101010000100010111101100101011101000110001100101001 ?
+1>
+1=
+0<
+0;
+0:
+09
+08
+07
+b10 6
+b10 5
+b0 .
+b0 -
+b0 ,
+b0 +
+b0 *
+b10 )
+0(
+0'
+0&
+0%
+0$
+0#
+1"
+1!
+$end
+#1000
+1(
+b0 )
+b0 5
+1!
+0"
+b1000001010001000100010001001001 ?
+b0 6
+17
+0=
+b1000 *
+b1000 .
+b1 -
+b1 +
+#2000
+1%
+1$
+1!
+1(
+b100110001010111 ?
+1:
+1;
+b100011 *
+b100011 .
+b10 -
+b10 +
+#3000
+1#
+0%
+0!
+0$
+1(
+b101001101010111 ?
+1<
+0:
+0>
+0;
+b101011 *
+b101011 .
+b11 -
+b11 +
+#4000
+b1 )
+b1 5
+1'
+0#
+0(
+b10000100100010101010001 ?
+b1 6
+18
+0<
+07
+b100 *
+b100 .
+b100 -
+b100 +
+#5000
+1&
+b0 )
+b0 5
+0'
+b1001010 ?
+b0 6
+19
+08
+b10 *
+b10 .
+b101 -
+b101 +
+#6000
+0&
+b1010101011011100111001101110101011100000111000001101111011100100111010001100101011001000010111101000100011001010110011001100001011101010110110001110100 ?
+09
+b111111 *
+b111111 .
+b110 -
+b110 +
+#7000
+b111 -
+b111 +

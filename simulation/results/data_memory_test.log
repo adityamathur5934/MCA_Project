@@ -1,0 +1,17 @@
+VCD info: dumpfile simulation/waveforms/tb_data_memory.vcd opened for output.
+==================================================
+Starting Data Memory Verification
+==================================================
+[PASS] Test  1:              Reset clears word 0 | Addr=0x00000000, Data=0x00000000
+[PASS] Test  2: ad Word 1 (0x04) with mem_read=1 | Addr=0x00000004, Data=0xcafe1234
+[PASS] Test  3: Word 1 with mem_read=0 returns 0 | Addr=0x00000004, Data=0x00000000
+[PASS] Test  4: d Word 5 (0x14) stored value 100 | Addr=0x00000014, Data=0x00000064
+[PASS] Test  5:   Overwrite Word 1 with DEADBEEF | Addr=0x00000004, Data=0xdeadbeef
+==================================================
+Data Memory Verification Finished
+Total Tests : 5
+Tests Passed: 5
+Tests Failed: 0
+==================================================
+>>> ALL DATA MEMORY TESTS PASSED <<<
+testbench/tb_data_memory.v:128: $finish called at 72000 (1ps)

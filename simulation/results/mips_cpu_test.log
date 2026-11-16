@@ -1,0 +1,50 @@
+VCD info: dumpfile simulation/waveforms/tb_mips_cpu.vcd opened for output.
+================================================================
+   SINGLE-CYCLE MIPS PROCESSOR: FULL SYSTEM VERIFICATION
+================================================================
+
+--- PART 1: ISA Verification (10 Instructions & Core Logic) ---
+[PASS] Test  1:                  Reset PC initialization | Observed: 0x00000000 (0)
+[PASS] Test  2:         ADDI positive immediate ($t1=25) | Observed: 0x00000019 (25)
+[PASS] Test  3:             ADDI second operand ($t2=15) | Observed: 0x0000000f (15)
+[PASS] Test  4:                 ADD instruction ($t3=40) | Observed: 0x00000028 (40)
+[PASS] Test  5:                 SUB instruction ($t4=10) | Observed: 0x0000000a (10)
+[PASS] Test  6:                  AND instruction ($t5=9) | Observed: 0x00000009 (9)
+[PASS] Test  7:                  OR instruction ($t6=31) | Observed: 0x0000001f (31)
+[PASS] Test  8:                  SLT instruction ($t7=1) | Observed: 0x00000001 (1)
+[PASS] Test  9:         ADDI negative immediate ($s0=-5) | Observed: 0xfffffffb (4294967291)
+[PASS] Test 10:               SW instruction (Mem[8]=40) | Observed: 0x00000028 (40)
+[PASS] Test 11:                  LW instruction ($s1=40) | Observed: 0x00000028 (40)
+[PASS] Test 12:      BEQ not taken (PC advances to 0x2C) | Observed: 0x0000002c (44)
+[PASS] Test 13:        Fall-through instruction ($s2=99) | Observed: 0x00000063 (99)
+[PASS] Test 14:        BEQ taken (Branch target PC=0x3C) | Observed: 0x0000003c (60)
+[PASS] Test 15: kipped instruction branch safety ($s3=0) | Observed: 0x00000000 (0)
+[PASS] Test 16:      J instruction (Jump target PC=0x48) | Observed: 0x00000048 (72)
+[PASS] Test 17:  Skipped instruction jump safety ($s4=0) | Observed: 0x00000000 (0)
+[PASS] Test 18: er $zero write protection ($0 remains 0) | Observed: 0x00000000 (0)
+
+--- PART 2: Sample Program 1 — Array Sum (10, 20, 30, 40) ---
+WARNING: testbench/tb_mips_cpu.v:264: $readmemh(programs/array_sum.hex): Not enough words in the file for the requested range [0:255].
+[PASS] Test 19:        Array Sum Program: Mem[16] == 100 | Observed: 0x00000064 (100)
+[PASS] Test 20:        Array Sum Program: Reg $t1 == 100 | Observed: 0x00000064 (100)
+
+--- PART 3: Sample Program 2 — Maximum Search (12, 45, 23, 67, 34) ---
+WARNING: testbench/tb_mips_cpu.v:292: $readmemh(programs/maximum_search.hex): Not enough words in the file for the requested range [0:255].
+[PASS] Test 21:    Maximum Search Program: Mem[20] == 67 | Observed: 0x00000043 (67)
+[PASS] Test 22:    Maximum Search Program: Reg $t1 == 67 | Observed: 0x00000043 (67)
+
+--- PART 4: Sample Program 3 — Factorial (5! = 120) ---
+WARNING: testbench/tb_mips_cpu.v:321: $readmemh(programs/factorial.hex): Not enough words in the file for the requested range [0:255].
+[PASS] Test 23:         Factorial Program: Mem[0] == 120 | Observed: 0x00000078 (120)
+[PASS] Test 24:        Factorial Program: Reg $t1 == 120 | Observed: 0x00000078 (120)
+
+================================================================
+   PROCESSOR INTEGRATION VERIFICATION SUMMARY
+================================================================
+Total Assertions Executed : 24
+Total Assertions Passed   : 24
+Total Assertions Failed   : 0
+Total Simulation Cycles   : 225
+================================================================
+>>> ALL SYSTEM & PROGRAM VERIFICATION TESTS PASSED SUCCESSFULLY <<<
+testbench/tb_mips_cpu.v:355: $finish called at 2330000 (1ps)

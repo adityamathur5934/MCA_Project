@@ -1,0 +1,13 @@
+# Simulation binary outputs
+simulation/tb_*
+*.vvp
+*.out
+/tmp/mips_*
+
+# System and temporary files
+__pycache__/
+*.pyc
+.DS_Store
+*.swp
+*.bak
+.venv/

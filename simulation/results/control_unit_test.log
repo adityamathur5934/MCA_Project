@@ -1,0 +1,19 @@
+VCD info: dumpfile simulation/waveforms/tb_control_unit.vcd opened for output.
+==================================================
+Starting Control Unit Verification
+==================================================
+[PASS] Test  1:     R-Type (ADD/SUB/etc) (Opcode: 6'b000000)
+[PASS] Test  2:                     ADDI (Opcode: 6'b001000)
+[PASS] Test  3:                       LW (Opcode: 6'b100011)
+[PASS] Test  4:                       SW (Opcode: 6'b101011)
+[PASS] Test  5:                      BEQ (Opcode: 6'b000100)
+[PASS] Test  6:                        J (Opcode: 6'b000010)
+[PASS] Test  7:      Unsupported/Default (Opcode: 6'b111111)
+==================================================
+Control Unit Verification Finished
+Total Tests : 7
+Tests Passed: 7
+Tests Failed: 0
+==================================================
+>>> ALL CONTROL UNIT TESTS PASSED <<<
+testbench/tb_control_unit.v:125: $finish called at 7000 (1ps)

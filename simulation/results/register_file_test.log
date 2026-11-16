@@ -1,0 +1,17 @@
+VCD info: dumpfile simulation/waveforms/tb_register_file.vcd opened for output.
+==================================================
+Starting Register File Verification
+==================================================
+[PASS] Test  1:           Reset clears registers | R[1]=0x00000000, R[2]=0x00000000
+[PASS] Test  2:      Write to R[1] and read R[0] | R[1]=0x12345678, R[0]=0x00000000
+[PASS] Test  3:  $zero hardwired zero protection | R[0]=0x00000000, R[0]=0x00000000
+[PASS] Test  4:      Dual port simultaneous read | R[10]=0xaabbccdd, R[20]=0x55667788
+[PASS] Test  5:        No write when reg_write=0 | R[10]=0xaabbccdd, R[1]=0x12345678
+==================================================
+Register File Verification Finished
+Total Tests : 5
+Tests Passed: 5
+Tests Failed: 0
+==================================================
+>>> ALL REGISTER FILE TESTS PASSED <<<
+testbench/tb_register_file.v:137: $finish called at 102000 (1ps)

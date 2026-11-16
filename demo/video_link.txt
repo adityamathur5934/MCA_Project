@@ -1,0 +1,24 @@
+# Prototype Demonstration Video Link & Recording Information
+
+## Video Submission Placeholder
+- Project Title: Single-Cycle MIPS Processor with Memory Interface
+- Evaluation Phase: Phase I Demonstration (30% Evaluation Weight)
+- Video Duration: Target 4m:30s (Max 5m:00s)
+- Video Hosting Platform: YouTube (Unlisted / Public) or University LMS Portal
+
+---
+
+## Final Video URL:
+[INSERT FINAL RECORDED VIDEO URL HERE]
+Example: https://youtu.be/EXAMPLE_MIPS_PROTOTYPE_DEMO
+
+---
+
+## Video Recording Checklist & Guidelines
+- [ ] Recorded with all 5 team members present and speaking according to `demo/video_script.md`.
+- [ ] Visual clarity: 1080p (1920x1080) minimum resolution.
+- [ ] Clear audio without background noise or clipping.
+- [ ] Terminal simulation commands and live outputs clearly legible.
+- [ ] GTKWave waveforms zoomed in to show signal transitions, PC jumps, and memory writes.
+- [ ] Slide deck (`presentation/prototype_presentation.pptx`) used for intro and architectural sections.
+- [ ] Time duration strictly under 5 minutes.

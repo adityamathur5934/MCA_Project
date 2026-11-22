@@ -1,65 +1,71 @@
-# Project Status: Single-Cycle & 5-Stage Pipelined MIPS Processor with Memory Interface and Hazard Resolution
+# Project Status: Single-Cycle MIPS Processor with Memory Interface
 
-## Final Phase Status Overview
-- **Project Title:** Single-Cycle & 5-Stage Pipelined MIPS Processor with Memory Interface and Hazard Resolution
-- **Phase:** **FINAL PHASE (100% Comprehensive Submission & Defense)**
-- **Team Size:** 5 Members (4 Speaking Presenters + 1 Non-Speaking Demo/Production Coordinator)
+## Phase I Status Overview
+- **Project Title:** Single-Cycle MIPS Processor with Memory Interface
+- **Phase:** Phase I (30% Evaluation Weight)
+- **Team Size:** 5 Members
 - **Overall Status:** **COMPLETE & VERIFIED (100%)**
-- **Evaluation Readiness:** Ready for Final Evaluation, Presentation & Viva Defense
-- **Last Updated:** 2026-11-22
+- **Evaluation Readiness:** Ready for Submission & Defense
+- **Last Updated:** 2026-11-16
 
 ---
 
-## Toolchain & Verification Summary
+## Toolchain & Environment Verification
 | Tool / Component | Status | Details |
 | :--- | :--- | :--- |
-| **Icarus Verilog (`iverilog`)** | Active (v13.0) | Compiles Single-Cycle and 5-Stage Pipelined RTL cleanly |
-| **VVP Runtime (`vvp`)** | Active (v13.0) | Executed 78/78 assertions with 100% pass across 6 testbenches |
-| **Waveform Generation** | Active (.vcd) | Cycle-accurate waveforms in `simulation/waveforms/*.vcd` |
-| **GTKWave Setup** | Active (.gtkw) | Pre-configured signal layout in `simulation/waveforms/mips_demo.gtkw` |
-| **Presentation Engine (`python-pptx`)** | Active | Generated 14-slide widescreen `presentation/final_presentation.pptx` |
-| **Report Generation (`reportlab`)** | Active | Generated IEEE report `report/final_project_report.pdf` |
-| **Script Generation (`reportlab`)** | Active | Generated `presentation/Final_Presentation_Script_4_Teammates.pdf` |
-| **Diagram Engine (`matplotlib`)** | Active | Generated `diagrams/pipelined_architecture.png` + 6 Phase I diagrams |
+| **Icarus Verilog (`iverilog`)** | Active (v13.0) | Verified & Synthesizing clean code |
+| **VVP Runtime (`vvp`)** | Active (v13.0) | Executed 57/57 assertions with 100% pass |
+| **Waveform Generation** | Active (.vcd) | All VCD files generated in `simulation/waveforms/` |
+| **Python 3** | Active (v3.13) | Utility & generation scripts functional |
+| **Presentation Engine (`python-pptx`)** | Active | Generated `presentation/prototype_presentation.pptx` |
+| **Report Generation (`reportlab`)** | Active | Generated `report/project_report.pdf` |
+| **Diagram Engine (`matplotlib`)** | Active | Generated 6 high-res architecture PNG diagrams |
 
 ---
 
 ## Execution Stages Tracker
 
-- [x] **STAGE 0 — Baseline & Roadmap Review**
-  - Verified Phase I single-cycle core and test logs.
-  - Formulated Final Phase microarchitectural roadmap for 5-stage pipelining and hazard resolution.
+- [x] **STAGE 0 — Repository & Toolchain Inspection**
+  - Project directory structure established.
+  - Verilog simulation tools (iverilog, vvp) installed and verified.
+  - Presentation and report compilation engines configured.
+  - Roadmap and execution order established.
 
-- [x] **STAGE 1 — Pipelined RTL Implementation**
-  - [x] `src/pipelined/pipe_if_id.v`: IF/ID register with stall and flush.
-  - [x] `src/pipelined/pipe_id_ex.v`: ID/EX register buffering control signals and data.
-  - [x] `src/pipelined/pipe_ex_mem.v`: EX/MEM register buffering execution results and memory controls.
-  - [x] `src/pipelined/pipe_mem_wb.v`: MEM/WB register buffering writeback values.
-  - [x] `src/pipelined/forwarding_unit.v`: Data Forwarding Unit resolving EX and MEM RAW hazards.
-  - [x] `src/pipelined/hazard_detection_unit.v`: Hazard Detection Unit handling Load-Use stalls and branch flushes.
-  - [x] `src/pipelined/pipelined_mips_cpu.v`: 5-Stage Pipelined MIPS CPU core.
-  - [x] `src/pipelined/top_pipelined_module.v`: Top-level integration wrapper.
+- [x] **STAGE 1 — RTL Implementation**
+  - [x] `src/program_counter.v`: 32-bit PC register with active-high reset.
+  - [x] `src/instruction_memory.v`: Harvard ROM loaded via $readmemh.
+  - [x] `src/control_unit.v`: Combinational 6-bit opcode decoder.
+  - [x] `src/register_file.v`: 32x32-bit register array with $0 hardwired ground.
+  - [x] `src/sign_extend.v`: 16-to-32 bit two's complement sign extender.
+  - [x] `src/alu.v`: Multi-function arithmetic/logic execution unit.
+  - [x] `src/alu_control.v`: Funct and ALUOp decoding logic.
+  - [x] `src/data_memory.v`: 256-word RAM with word-aligned addressing.
+  - [x] `src/mips_cpu.v`: Core datapath integrating all execution blocks.
+  - [x] `src/top_module.v`: Top-level integration wrapper with debug ports.
 
-- [x] **STAGE 2 — Comprehensive Unit & Integration Verification**
+- [x] **STAGE 2 — Unit Testing**
   - [x] `testbench/tb_alu.v`: 16/16 tests passed.
   - [x] `testbench/tb_control_unit.v`: 7/7 tests passed.
   - [x] `testbench/tb_register_file.v`: 5/5 tests passed.
   - [x] `testbench/tb_data_memory.v`: 5/5 tests passed.
-  - [x] `testbench/tb_mips_cpu.v`: 24/24 tests passed (Single-Cycle core).
-  - [x] `testbench/tb_pipelined_mips.v`: 21/21 tests passed (5-Stage Pipelined core).
-  - [x] Total: 78/78 assertions passed (100% pass rate).
 
-- [x] **STAGE 3 — Benchmark Program Execution (5 Benchmarks)**
-  - [x] Array Sum (`programs/array_sum.hex`) -> Target sum = 100 [PASS].
-  - [x] Maximum Search (`programs/maximum_search.hex`) -> Target max = 67 [PASS].
-  - [x] Factorial (`programs/factorial.hex`) -> Target 5! = 120 [PASS].
-  - [x] Fibonacci Sequence (`programs/fibonacci.hex`) -> Target F(8) = 21 [PASS].
-  - [x] Bubble Sort (`programs/bubble_sort.hex`) -> Sorted array [12, 23, 34, 45, 89] [PASS].
+- [x] **STAGE 3 — Integration Testing & Sample Programs**
+  - [x] `testbench/tb_mips_cpu.v`: 24/24 tests passed.
+  - [x] Array Sum Program (`programs/array_sum.asm`, `programs/array_sum.hex`) -> Target sum = 100 [PASS].
+  - [x] Maximum Search Program (`programs/maximum_search.asm`, `programs/maximum_search.hex`) -> Target max = 67 [PASS].
+  - [x] Factorial Program (`programs/factorial.asm`, `programs/factorial.hex`) -> Target 5! = 120 [PASS].
+  - [x] VCD waveforms generated (`simulation/waveforms/*.vcd`).
+  - [x] Test logs & results (`simulation/results/*.log`, `simulation/simulation_summary.md`).
 
-- [x] **STAGE 4 — Final Phase Documentation & Presentation Materials**
-  - [x] IEEE Final Project Report (`report/final_project_report.pdf` & `report/project_report.tex`).
-  - [x] High-Resolution Pipelined Architecture Diagram (`diagrams/pipelined_architecture.png`).
-  - [x] Final Presentation Slide Deck (`presentation/final_presentation.pptx`, 14 slides).
-  - [x] Complete Spoken Script for 4 Teammates (`presentation/FINAL_PRESENTATION_SCRIPT.md`).
-  - [x] Formatted Printable Presentation Script (`presentation/Final_Presentation_Script_4_Teammates.pdf`).
-  - [x] Final Completion Report (`FINAL_COMPLETION_REPORT.md`).
+- [x] **STAGE 4 — Documentation & Artefacts**
+  - [x] Architecture diagrams (Datapath, Control, ALU, Register File, Instruction Flow, Memory Interface).
+  - [x] IEEE Project Report (`report/project_report.tex` and compiled `report/project_report.pdf`).
+  - [x] Presentation Slides (`presentation/prototype_presentation.pptx`).
+  - [x] Video Demonstration Script (`demo/video_script.md`) & link placeholder (`demo/video_link.txt`).
+  - [x] Architectural docs (`docs/architecture.md`, `docs/instruction_set.md`, `docs/module_documentation.md`, `docs/testing_strategy.md`, `docs/team_work_allocation.md`).
+
+- [x] **STAGE 5 — Submission Preparation & Verification**
+  - [x] Root `README.md`
+  - [x] `CONTRIBUTING.md`
+  - [x] `LICENSE` and `.gitignore`
+  - [x] `PHASE1_COMPLETION_REPORT.md`

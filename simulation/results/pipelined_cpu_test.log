@@ -1,0 +1,55 @@
+WARNING: src/instruction_memory.v:28: $readmemh(programs/array_sum.hex): Not enough words in the file for the requested range [0:255].
+VCD info: dumpfile simulation/waveforms/tb_pipelined_mips.vcd opened for output.
+================================================================
+   FINAL PHASE: 5-STAGE PIPELINED MIPS PROCESSOR VERIFICATION   
+================================================================
+
+--- PART 1: Forwarding & Hazard Unit Test Sequence ---
+[PASS] Test  1:                      ADDI writeback to $t1 == 10 | Observed: 0x0000000a (10)
+[PASS] Test  2:                   EX-to-EX Forwarding: $t2 == 20 | Observed: 0x00000014 (20)
+[PASS] Test  3:                  MEM-to-EX Forwarding: $t3 == 30 | Observed: 0x0000001e (30)
+[PASS] Test  4:         SW from forwarded register: Mem[0] == 30 | Observed: 0x0000001e (30)
+[PASS] Test  5:                          LW writeback: $t4 == 30 | Observed: 0x0000001e (30)
+[PASS] Test  6:           Load-Use Stall + Forwarding: $t5 == 40 | Observed: 0x00000028 (40)
+[PASS] Test  7:      Branch Flush Safety: $s0 remains 0 (not 99) | Observed: 0x00000000 (0)
+[PASS] Test  8:                Branch Target Executed: $s2 == 77 | Observed: 0x0000004d (77)
+
+--- PART 2: Benchmark 1 — Array Sum (10, 20, 30, 40) ---
+WARNING: testbench/tb_pipelined_mips.v:165: $readmemh(programs/array_sum.hex): Not enough words in the file for the requested range [0:255].
+[PASS] Test  9:              Pipelined Array Sum: Mem[16] == 100 | Observed: 0x00000064 (100)
+[PASS] Test 10:              Pipelined Array Sum: Reg $t1 == 100 | Observed: 0x00000064 (100)
+
+--- PART 3: Benchmark 2 — Maximum Search (12, 45, 23, 67, 34) ---
+WARNING: testbench/tb_pipelined_mips.v:186: $readmemh(programs/maximum_search.hex): Not enough words in the file for the requested range [0:255].
+[PASS] Test 11:              Pipelined Max Search: Mem[20] == 67 | Observed: 0x00000043 (67)
+[PASS] Test 12:              Pipelined Max Search: Reg $t1 == 67 | Observed: 0x00000043 (67)
+
+--- PART 4: Benchmark 3 — Factorial (5! = 120) ---
+WARNING: testbench/tb_pipelined_mips.v:208: $readmemh(programs/factorial.hex): Not enough words in the file for the requested range [0:255].
+[PASS] Test 13:               Pipelined Factorial: Mem[0] == 120 | Observed: 0x00000078 (120)
+[PASS] Test 14:              Pipelined Factorial: Reg $t1 == 120 | Observed: 0x00000078 (120)
+
+--- PART 5: Benchmark 4 — Fibonacci Sequence (F(8) = 21) ---
+WARNING: testbench/tb_pipelined_mips.v:222: $readmemh(programs/fibonacci.hex): Not enough words in the file for the requested range [0:255].
+[PASS] Test 15:        Pipelined Fibonacci: Mem[32] == 21 (0x15) | Observed: 0x00000015 (21)
+[PASS] Test 16:               Pipelined Fibonacci: Reg $t3 == 21 | Observed: 0x00000015 (21)
+
+--- PART 6: Benchmark 5 — Bubble Sort ---
+WARNING: testbench/tb_pipelined_mips.v:236: $readmemh(programs/bubble_sort.hex): Not enough words in the file for the requested range [0:255].
+[PASS] Test 17:                        Bubble Sort: Mem[0] == 12 | Observed: 0x0000000c (12)
+[PASS] Test 18:                        Bubble Sort: Mem[4] == 23 | Observed: 0x00000017 (23)
+[PASS] Test 19:                        Bubble Sort: Mem[8] == 34 | Observed: 0x00000022 (34)
+[PASS] Test 20:                       Bubble Sort: Mem[12] == 45 | Observed: 0x0000002d (45)
+[PASS] Test 21:                       Bubble Sort: Mem[16] == 89 | Observed: 0x00000059 (89)
+
+================================================================
+   PIPELINED PROCESSOR VERIFICATION SUMMARY
+================================================================
+Total Assertions Executed : 21
+Total Assertions Passed   : 21
+Total Assertions Failed   : 0
+Total Simulation Cycles   : 1471
+================================================================
+>>> ALL PIPELINED PROCESSOR TESTS PASSED WITH 100% SUCCESS <<<
+
+testbench/tb_pipelined_mips.v:277: $finish called at 14890000 (1ps)

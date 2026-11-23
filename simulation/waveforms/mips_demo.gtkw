@@ -1,52 +1,32 @@
-[gtkwave]
-# GTKWave save configuration for MIPS processor demonstration
-# VCD file loaded automatically when this .gtkw is opened
-# Signals are ordered for the video demonstration
-
-# Dumpfile path (relative to this .gtkw file)
-Dumpfile simulation/waveforms/tb_mips_cpu.vcd
-
-# Signal list – added in the required order
-# Syntax: "<hierarchical_signal_name> <radix>"
-# Radix: h – hexadecimal, d – decimal, b – binary, o – octal, u – unsigned decimal, s – signed decimal
-
-Signal tb_mips_cpu.clk b
-Signal tb_mips_cpu.rst b
-Signal tb_mips_cpu.pc h
-Signal tb_mips_cpu.instruction h
-Signal tb_mips_cpu.alu_result h
-Signal tb_mips_cpu.zero b
-Signal tb_mips_cpu.branch b
-Signal tb_mips_cpu.jump b
-Signal tb_mips_cpu.reg_write b
-Signal tb_mips_cpu.write_reg d
-Signal tb_mips_cpu.reg_write_data h
-Signal tb_mips_cpu.mem_read b
-Signal tb_mips_cpu.mem_write b
-Signal tb_mips_cpu.mem_write_data h
-Signal tb_mips_cpu.mem_read_data h
-
-# Initial display settings
-# Zoom to show the first 2000 ps (approximately the first few cycles)
-TimeStart 0
-TimeEnd 2000
-
-# Arrange signals vertically in the order above
-[signals]
-clk
-rst
-pc
-instruction
-alu_result
-zero
-branch
-jump
-reg_write
-write_reg
-reg_write_data
-mem_read
-mem_write
-mem_write_data
-mem_read_data
-
-# End of file
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*]
+[timestart] 0
+[size] 1200 700
+[pos] -1 -1
+*-25.000000 200 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_mips_cpu.
+@28
+tb_mips_cpu.clk
+tb_mips_cpu.rst
+@22
+tb_mips_cpu.pc[31:0]
+tb_mips_cpu.instruction[31:0]
+tb_mips_cpu.alu_result[31:0]
+@28
+tb_mips_cpu.zero
+tb_mips_cpu.branch
+tb_mips_cpu.jump
+tb_mips_cpu.reg_write
+@24
+tb_mips_cpu.write_reg[4:0]
+@22
+tb_mips_cpu.reg_write_data[31:0]
+@28
+tb_mips_cpu.mem_read
+tb_mips_cpu.mem_write
+@22
+tb_mips_cpu.mem_write_data[31:0]
+tb_mips_cpu.mem_read_data[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
